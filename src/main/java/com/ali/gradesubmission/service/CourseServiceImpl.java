@@ -2,8 +2,11 @@ package com.ali.gradesubmission.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.ali.gradesubmission.entity.Course;
 
+@Service
 public class CourseServiceImpl implements CourseService {
 
     @Override
