@@ -2,13 +2,22 @@ package com.ali.gradesubmission.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ali.gradesubmission.entity.Grade;
+import com.ali.gradesubmission.entity.Student;
+import com.ali.gradesubmission.repository.GradeRepository;
+import com.ali.gradesubmission.repository.StudentRepository;
 
 @Service
 public class GradeServiceImpl implements GradeService {
-    
+
+    @Autowired
+    GradeRepository gradeRepository;
+    @Autowired
+    StudentRepository studentRepository;
+
     @Override
     public Grade getGrade(Long studentId, Long courseId) {
         return null;
@@ -16,7 +25,9 @@ public class GradeServiceImpl implements GradeService {
 
     @Override
     public Grade saveGrade(Grade grade, Long studentId, Long courseId) {
-        return null;
+        Student student = studentRepository.findById(studentId).get();
+        grade.setStudent(student);
+        return gradeRepository.save(grade);
     }
 
     @Override
@@ -26,7 +37,7 @@ public class GradeServiceImpl implements GradeService {
 
     @Override
     public void deleteGrade(Long studentId, Long courseId) {
-        
+
     }
 
     @Override

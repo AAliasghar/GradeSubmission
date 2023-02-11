@@ -8,12 +8,11 @@ import org.springframework.stereotype.Service;
 import com.ali.gradesubmission.entity.Student;
 import com.ali.gradesubmission.repository.StudentRepository;
 
-
 @Service
 public class StudentServiceImpl implements StudentService {
 
-    @Autowired StudentRepository studentRepository;
-
+    @Autowired
+    StudentRepository studentRepository;
 
     @Override
     public Student getStudent(Long id) {
@@ -22,18 +21,17 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Student saveStudent(Student student) {
-        return  studentRepository.save(student);
+        return studentRepository.save(student);
     }
 
     @Override
-    public void deleteStudent(Long id) {  
-        studentRepository.deleteById(id);      
+    public void deleteStudent(Long id) {
+        studentRepository.deleteById(id);
     }
 
     @Override
     public List<Student> getStudents() {
-        return (List<Student>)studentRepository.findAll();
+        return (List<Student>) studentRepository.findAll();
     }
-
 
 }
