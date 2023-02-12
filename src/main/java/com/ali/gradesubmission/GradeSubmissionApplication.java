@@ -22,10 +22,10 @@ public class GradeSubmissionApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		Student[] students = new Student[] {
-				new Student(1L, "Sami", LocalDate.parse(("1902-07-31"))),
-				new Student(2L, "Avan", LocalDate.parse(("1990-03-01"))),
-				new Student(3L, "Ranco", LocalDate.parse(("1949-08-19"))),
-				new Student(4L, "Nadima", LocalDate.parse(("1970-07-29")))
+				new Student("Sami", LocalDate.parse(("1902-07-31"))),
+				new Student( "Avan", LocalDate.parse(("1990-03-01"))),
+				new Student("Ranco", LocalDate.parse(("1949-08-19"))),
+				new Student( "Nadima", LocalDate.parse(("1970-07-29")))
 		};
 		for (int i = 0; i < students.length; i++) {
 			studentRepository.save(students[i]);

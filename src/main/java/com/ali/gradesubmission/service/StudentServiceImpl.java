@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ali.gradesubmission.entity.Grade;
 import com.ali.gradesubmission.entity.Student;
 import com.ali.gradesubmission.repository.StudentRepository;
 
@@ -33,5 +34,7 @@ public class StudentServiceImpl implements StudentService {
     public List<Student> getStudents() {
         return (List<Student>) studentRepository.findAll();
     }
+
+ 
 
 }
