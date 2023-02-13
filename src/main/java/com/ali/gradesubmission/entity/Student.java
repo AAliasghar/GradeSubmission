@@ -45,6 +45,7 @@ public class Student {
     @JsonIgnore
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
     private List<Grade> grades;
+    
     // public Long getId() {
     // return this.id;
     // }
