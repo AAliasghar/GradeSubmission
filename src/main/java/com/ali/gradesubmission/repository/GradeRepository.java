@@ -12,5 +12,5 @@ public interface GradeRepository extends CrudRepository<Grade, Long> {
     Optional<Grade> findByStudentIdAndCourseId(Long studentId, Long courseId); // Custom query by studentId and
                                                                                // courseId, Optional to check Null
 
-    void deleteByStundentIdAndCourseId(Long studentId, Long courseId);
+    void deleteByStudentIdAndCourseId(Long studentId, Long courseId);
 }

@@ -58,7 +58,7 @@ public class GradeServiceImpl implements GradeService {
 
     @Override
     public void deleteGrade(Long studentId, Long courseId) {
-        gradeRepository.deleteByStundentIdAndCourseId(studentId, courseId);
+        gradeRepository.deleteByStudentIdAndCourseId(studentId, courseId);
     }
 
     @Override
