@@ -1,6 +1,7 @@
 package com.ali.gradesubmission.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.ali.gradesubmission.entity.Course;
 import com.ali.gradesubmission.entity.Grade;
 import com.ali.gradesubmission.entity.Student;
+import com.ali.gradesubmission.exception.GradeNotFoundException;
 import com.ali.gradesubmission.repository.CourseRepository;
 import com.ali.gradesubmission.repository.GradeRepository;
 import com.ali.gradesubmission.repository.StudentRepository;
@@ -24,7 +26,12 @@ public class GradeServiceImpl implements GradeService {
 
     @Override
     public Grade getGrade(Long studentId, Long courseId) {
-        return gradeRepository.findByStudentIdAndCourseId(studentId, courseId);
+        Optional<Grade> grade = gradeRepository.findByStudentIdAndCourseId(studentId, courseId);
+        if (grade.isPresent()) {
+            return grade.get();
+        } else {
+            throw new GradeNotFoundException(studentId, courseId);
+        }
     }
 
     @Override
@@ -38,14 +45,20 @@ public class GradeServiceImpl implements GradeService {
 
     @Override
     public Grade updateGrade(String score, Long studentId, Long courseId) {
-        Grade grade = gradeRepository.findByStudentIdAndCourseId(studentId, courseId);
-        grade.setScore(score);
-        return gradeRepository.save(grade);
+        Optional<Grade> grade = gradeRepository.findByStudentIdAndCourseId(studentId, courseId);
+        if (grade.isPresent()) {
+            Grade unWrappedGrade = grade.get();
+            unWrappedGrade.setScore(score);
+           return gradeRepository.save(unWrappedGrade);
+        } else {
+            throw new GradeNotFoundException(studentId, courseId);
+        }
+        
     }
 
     @Override
     public void deleteGrade(Long studentId, Long courseId) {
-
+        gradeRepository.deleteByStundentIdAndCourseId(studentId, courseId);
     }
 
     @Override
