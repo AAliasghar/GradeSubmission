@@ -34,7 +34,7 @@ public class Course {
     private String subject;
 
     @NonNull
-    @Column(name = "code", nullable = false)
+    @Column(name = "code", nullable = false, unique = true) // A course should have unique code
     private String code;
 
     @NonNull

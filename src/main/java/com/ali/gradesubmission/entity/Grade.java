@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import lombok.*;
 
@@ -17,7 +18,10 @@ import lombok.*;
 @NoArgsConstructor
 
 @Entity
-@Table(name = "grade")
+@Table(name = "grade", uniqueConstraints = {
+        // One Student can have one Grade for each course
+    @UniqueConstraint(columnNames = {"student_id","course_id"}) // One Student can have 
+})
 public class Grade {
 
     @Id

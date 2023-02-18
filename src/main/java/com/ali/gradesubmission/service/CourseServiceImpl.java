@@ -15,16 +15,18 @@ import lombok.AllArgsConstructor;
 @Service
 public class CourseServiceImpl implements CourseService {
 
-CourseRepository courseRepository;
+    CourseRepository courseRepository;
 
     @Override
     public Course getCourse(Long id) {
         Optional<Course> course = courseRepository.findById(id);
-        if (course.isPresent()) {                // Null check by Id
-            return course.get();
-        } else{
-            throw new CourseNotFoundException(id);
-        }
+        // Null check by Id
+        // if (course.isPresent()) {
+        // return course.get();
+        // } else{
+        // throw new CourseNotFoundException(id);
+        // }
+        return unwrapCourse(course, id);
     }
 
     @Override
@@ -33,13 +35,22 @@ CourseRepository courseRepository;
     }
 
     @Override
-    public void deleteCourse(Long id) {  
-        courseRepository.deleteById(id);      
+    public void deleteCourse(Long id) {
+        courseRepository.deleteById(id);
     }
 
     @Override
     public List<Course> getCourses() {
-        return (List<Course>)courseRepository.findAll();
+        return (List<Course>) courseRepository.findAll();
+    }
+
+    static Course unwrapCourse(Optional<Course> entity, Long id) {
+        if (entity.isPresent())
+            return entity.get();
+        else {
+            throw new CourseNotFoundException(id);
+        }
+
     }
 
 }
