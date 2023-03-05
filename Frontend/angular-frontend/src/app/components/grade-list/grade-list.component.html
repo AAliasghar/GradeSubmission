@@ -1,0 +1,15 @@
+<h2> Grade List </h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th> Id</th>
+            <th> Score</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let grade of grades">
+            <td>{{grades.Id}}</td>
+            <td>{{grades.score}}</td>
+        </tr>
+    </tbody>
+</table>

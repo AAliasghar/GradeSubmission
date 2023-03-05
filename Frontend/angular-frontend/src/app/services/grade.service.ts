@@ -13,7 +13,7 @@ export class GradeService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getEmployeesList(): Observable<Grade[]> {
+  getGradesList(): Observable<Grade[]> {
     return this.httpClient.get<Grade[]>(`${this.baseURL}`);
   }
 }

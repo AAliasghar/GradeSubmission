@@ -19,7 +19,7 @@ import com.ali.gradesubmission.entity.Grade;
 import com.ali.gradesubmission.service.GradeService;
 //import com.ali.gradesubmission.service.GradeServiceImpl;
 
-@CrossOrigin(origins = "http://localhost:4300")
+@CrossOrigin(origins = "http://localhost:60802")
 @RestController
 @RequestMapping("/grade")
 public class GradeController {
