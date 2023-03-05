@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class GradeService {
 
 
-  private baseURL = "http://localhost:8090/api/v1/grades";
+  private baseURL = "http://localhost:8090/grade/all";
 
   constructor(private httpClient: HttpClient) { }
 
