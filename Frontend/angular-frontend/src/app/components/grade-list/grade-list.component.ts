@@ -15,7 +15,7 @@ export class GradeListComponent implements OnInit {
   
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.getGrades();
   }
 
   private getGrades() {

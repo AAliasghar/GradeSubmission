@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { GradeListComponent } from './components/grade-list/grade-list.component';
 
 const routes: Routes = [
-  {path:'all', component:GradeListComponent}
+  {path:'grade/all', component:GradeListComponent}
 ];
 
 @NgModule({
