@@ -11,7 +11,7 @@ export class StudentListComponent implements OnInit {
 
   students: Student[]=[];
 
-  constructor(private serviceStudent: StudentService){}
+  constructor(private studentService: StudentService){}
 
   ngOnInit(): void {
     this.getStudents();
@@ -19,7 +19,7 @@ export class StudentListComponent implements OnInit {
 
   private getStudents(){
 
-    this.serviceStudent.getStudentsList().subscribe(data => {
+    this.studentService.getStudentsList().subscribe(data => {
       this.students = data;
     });
   }

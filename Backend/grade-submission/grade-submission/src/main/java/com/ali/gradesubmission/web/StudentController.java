@@ -45,5 +45,9 @@ public class StudentController {
         return new ResponseEntity<>(studentService.getStudents(),HttpStatus.OK);
     }
 
-
+    // Alternative
+    // @GetMapping("/all")
+    // public List<Student> getStudents() {
+    //     return studentService.getStudents();
+    // }
 }
