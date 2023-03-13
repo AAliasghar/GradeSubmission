@@ -19,7 +19,7 @@ import com.ali.gradesubmission.service.CourseService;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
-@CrossOrigin(origins = "http://localhost:60802")
+@CrossOrigin(origins = "http://localhost:65412")
 @RestController
 @RequestMapping("/course")
 public class CourseController {

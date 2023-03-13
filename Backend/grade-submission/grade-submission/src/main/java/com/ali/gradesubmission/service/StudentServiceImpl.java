@@ -54,4 +54,27 @@ public class StudentServiceImpl implements StudentService {
         }
 
     }
+
+    // @Override
+    // public Grade updateStudenyById(Long studentId) {
+    //     Optional<Student> student = studentRepository.findById(studentId);
+    //     if (student.isPresent()) {
+    //         Student unWrappedStudent = student.get();
+    //         unWrappedGrade.setScore(score);
+    //         return gradeRepository.save(unWrappedGrade);
+    //     } else {
+    //         throw new GradeNotFoundException(studentId, courseId);
+    //     }
+    //     // Could be done this way ***
+    //     // Grade unwrappedGrade = unwrapGrade(grade, studentId, courseId);
+    //     // unwrappedGrade.setScore(score);
+    //     // return gradeRepository.save(unwrappedGrade);
+
+    // }
+
+    // @Override
+    // public Student updateStudent(Long id) {
+    //     // TODO Auto-generated method stub
+    //     throw new UnsupportedOperationException("Unimplemented method 'updatStudent'");
+    // }
 }

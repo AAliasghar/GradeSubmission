@@ -13,7 +13,15 @@ export class GradeService {
 
   constructor(private httpClient: HttpClient) { }
 
+  // Getting Grade List
   getGradesList(): Observable<Grade[]> {
     return this.httpClient.get<Grade[]>(`${this.baseURL}`);
   }
+
+ 
+  // Adding Grade
+addGrade(grade: Grade): Observable<Object>{
+  return this.httpClient.post(`${this.baseURL}`,grade);
+}
+
 }

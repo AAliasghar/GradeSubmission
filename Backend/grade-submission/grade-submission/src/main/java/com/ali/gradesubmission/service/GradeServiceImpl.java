@@ -47,6 +47,8 @@ public class GradeServiceImpl implements GradeService {
         return gradeRepository.save(grade);
     }
 
+    
+
     @Override
     public Grade updateGrade(String score, Long studentId, Long courseId) {
         Optional<Grade> grade = gradeRepository.findByStudentIdAndCourseId(studentId, courseId);

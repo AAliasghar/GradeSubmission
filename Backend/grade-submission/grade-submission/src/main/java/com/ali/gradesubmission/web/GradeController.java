@@ -19,7 +19,7 @@ import com.ali.gradesubmission.entity.Grade;
 import com.ali.gradesubmission.service.GradeService;
 //import com.ali.gradesubmission.service.GradeServiceImpl;
 
-@CrossOrigin(origins = "http://localhost:60802")
+@CrossOrigin(origins = "http://localhost:65412")
 @RestController
 @RequestMapping("/grade")
 public class GradeController {
@@ -29,7 +29,7 @@ public class GradeController {
 
     @GetMapping("/student/{studentId}/course/{courseId}")
     public ResponseEntity<Grade> getGrade(@PathVariable Long studentId, @PathVariable Long courseId) {
-        return new ResponseEntity<>(gradeService.getGrade(studentId, courseId),HttpStatus.OK);
+        return new ResponseEntity<>(gradeService.getGrade(studentId, courseId), HttpStatus.OK);
     }
 
     @PostMapping("/student/{studentId}/course/{courseId}")
@@ -38,31 +38,35 @@ public class GradeController {
         return new ResponseEntity<>(gradeService.saveGrade(grade, studentId, courseId), HttpStatus.CREATED);
     }
 
+ 
+
+
     @PutMapping("/student/{studentId}/course/{courseId}")
     public ResponseEntity<Grade> updateGrade(@RequestBody Grade grade, @PathVariable Long studentId,
             @PathVariable Long courseId) {
         return new ResponseEntity<>(gradeService.updateGrade(grade.getScore(), studentId, courseId), HttpStatus.OK);
     }
 
+
     @DeleteMapping("/student/{studentId}/course/{courseId}")
     public ResponseEntity<HttpStatus> deleteGrade(@PathVariable Long studentId, @PathVariable Long courseId) {
-       gradeService.deleteGrade(studentId, courseId);
+        gradeService.deleteGrade(studentId, courseId);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @GetMapping("/student/{studentId}")
     public ResponseEntity<List<Grade>> getStudentGrades(@PathVariable Long studentId) {
-        return new ResponseEntity<>(gradeService.getStudentGrades(studentId),HttpStatus.OK);
+        return new ResponseEntity<>(gradeService.getStudentGrades(studentId), HttpStatus.OK);
     }
 
     @GetMapping("/course/{courseId}")
     public ResponseEntity<List<Grade>> getCourseGrades(@PathVariable Long courseId) {
-        return new ResponseEntity<>(gradeService.getCourseGrades(courseId),HttpStatus.OK);
+        return new ResponseEntity<>(gradeService.getCourseGrades(courseId), HttpStatus.OK);
     }
 
     @GetMapping("/all")
     public ResponseEntity<List<Grade>> getGrades() {
-        return new ResponseEntity<>(gradeService.getAllGrades(),HttpStatus.OK);
+        return new ResponseEntity<>(gradeService.getAllGrades(), HttpStatus.OK);
     }
 
 }

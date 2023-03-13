@@ -12,6 +12,9 @@
             <td>{{student.id}}</td>
             <td>{{student.name}}</td>
             <td>{{student.birthDate}}</td>
+            <td>
+                <button (click)="updateStudent(student.id)" class="btn btn-info"> Update</button>
+            </td>
         </tr>
     </tbody>
 </table>

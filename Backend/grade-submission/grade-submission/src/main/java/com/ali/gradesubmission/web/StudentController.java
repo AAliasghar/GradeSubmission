@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ali.gradesubmission.entity.Student;
 import com.ali.gradesubmission.service.StudentService;
 
-@CrossOrigin(origins = "http://localhost:60802")
+@CrossOrigin(origins = "http://localhost:65412")
 @RestController
 @RequestMapping("/student")
 public class StudentController {
@@ -50,4 +51,20 @@ public class StudentController {
     // public List<Student> getStudents() {
     //     return studentService.getStudents();
     // }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Student> updateStudenyById( @PathVariable Long id, @RequestBody Student studentDetails){
+
+        // Getting Student By Id
+        Student student = studentService.getStudent(id);
+        
+        // Updating new details
+        student.setName(studentDetails.getName());
+        student.setBirthDate(studentDetails.getBirthDate());
+
+        // save student
+        Student updatedStudent = studentService.saveStudent(student);
+        return ResponseEntity.ok(updatedStudent);
+
+    }
 }

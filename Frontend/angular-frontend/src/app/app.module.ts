@@ -8,13 +8,17 @@ import { AppComponent } from './app.component';
 import { GradeListComponent } from './components/grade-list/grade-list.component';
 import { StudentListComponent } from './components/student-list/student-list.component';
 import { CourseListComponent } from './components/course-list/course-list.component';
+import { CreateGradeComponent } from './components/create-grade/create-grade.component';
+import { UpdateStudentComponent } from './components/update-student/update-student.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GradeListComponent,
     StudentListComponent,
-    CourseListComponent
+    CourseListComponent,
+    CreateGradeComponent,
+    UpdateStudentComponent
   ],
   imports: [
     BrowserModule,
