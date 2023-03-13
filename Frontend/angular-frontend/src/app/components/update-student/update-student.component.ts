@@ -19,6 +19,7 @@ export class UpdateStudentComponent implements OnInit {
   ngOnInit(): void {
     // Active route
     this.id = this.route.snapshot.params[`id`];
+
      // Calling getEmployeeById
     this.studentService.getStudentById(this.id).subscribe(data => {
       this.student = data;
@@ -38,7 +39,7 @@ OnSubmit(){
   }
 
 goToStudentList() {
-  this.router.navigate(['/studnets']);
+  this.router.navigate(['/student/all']);
 }
 
 }

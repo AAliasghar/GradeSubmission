@@ -17,13 +17,14 @@ export class StudentService {
   }
 
 
-  // Get student by Id
+  // Get Student By Id
   getStudentById(id: number): Observable<Student> {
     return this.httpClient.get<Student>(`${this.baseURL}/${id}`)
   }
 
 
 
+  // Update Employee By Id
   updateStudentById(id: number, student: Student): Observable<Object> {
     return this.httpClient.put(`${this.baseURL}/${id}`, student);
   }

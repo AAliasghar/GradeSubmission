@@ -27,7 +27,7 @@ export class StudentListComponent implements OnInit {
 
   // Update student navigate
   updateStudent(id: number) {
-    this.router.navigate(['update-student', id]);
+    this.router.navigate(['student/all', id]);
   }
 
 }

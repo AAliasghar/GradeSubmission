@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'grade/all', pathMatch: 'full' },
   {path:'student/all', component: StudentListComponent},
   {path:'course/all', component:CourseListComponent},
-  {path:'update-student/:id',component:UpdateStudentComponent}
+  { path:'student/all/:id',component:UpdateStudentComponent}
 ];
 
 @NgModule({
