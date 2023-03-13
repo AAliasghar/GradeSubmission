@@ -10,5 +10,5 @@ import com.ali.gradesubmission.entity.Student;
 @Repository
 public interface StudentRepository extends CrudRepository<Student, Long> {
 
-   // Optional<Student> findByStudentId(Long studentId); // Custom query by studentId 
+   
 }
